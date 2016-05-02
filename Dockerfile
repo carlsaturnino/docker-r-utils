@@ -17,3 +17,5 @@ RUN cpan install $CPAN_PACKAGES
 
 ENV UTILS_PACKAGES sudo curl whois bsdmainutils
 RUN apt-get install -y $UTILS_PACKAGES
+
+ENTRYPOINT ["r"]
