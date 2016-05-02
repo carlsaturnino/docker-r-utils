@@ -1,7 +1,7 @@
 FROM r-base
 MAINTAINER Carl Saturnino <cosaturn@gmail.com>
 
-ENV BUILD_PACKAGES num-utils build-essential git sudo curl whois bsdmainutils
+ENV BUILD_PACKAGES num-utils build-essential git 
 ENV CPAN_PACKAGES HTML::Strip
 
 RUN apt-get -y update && \
@@ -14,3 +14,6 @@ RUN apt-get install -y $RUBY_PACKAGES && \
 RUN gem install --no-document io-console t
 
 RUN cpan install $CPAN_PACKAGES
+
+ENV UTILS_PACKAGES sudo curl whois bsdmainutils
+RUN apt-get install -y $UTILS_PACKAGES
